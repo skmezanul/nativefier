@@ -23,7 +23,9 @@
     "watch": "while true ; do gulp watch ; done",
     "package-placeholder": "npm run build && node lib/cli.js http://www.bennish.net/web-notifications.html ~/Desktop --overwrite --name notification-test --icon ./test-resources/iconSampleGrey.png --inject ./test-resources/test-injection.js --inject ./test-resources/test-injection.css && open ~/Desktop/notification-test-darwin-x64/notification-test.app",
     "start-placeholder": "npm run build && electron app",
-    "changelog": "./scripts/changelog"
+    "changelog": "./scripts/changelog",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "bin": {
     "nativefier": "lib/cli.js"
@@ -56,7 +58,8 @@
     "shelljs": "^0.7.0",
     "source-map-support": "^0.4.0",
     "tmp": "0.0.31",
-    "validator": "^7.0.0"
+    "validator": "^7.0.0",
+    "snyk": "^1.189.0"
   },
   "devDependencies": {
     "babel-core": "^6.4.5",
@@ -93,5 +96,6 @@
     "testMatch": [
       "**/src/**/?(*.)(spec|test).js?(x)"
     ]
-  }
+  },
+  "snyk": true
 }
